@@ -368,6 +368,7 @@ public class GridGraph
 
 public class Node : IComparable
 {
+    public static int Lazy = 1;
     public Node((int, int) loc)
     {
         Locate = loc;
@@ -376,11 +377,15 @@ public class Node : IComparable
     public double Priority;
     public (int h, int w) Locate;
     public Dictionary<Dir, Edge> Edges = new Dictionary<Dir, Edge>();
-    public int CompareTo(object other) => Math.Sign(this.Priority - (other as Node).Priority);
+    public int CompareTo(object other) => Math.Sign((this.Priority - (other as Node).Priority) * Lazy);
 }
 
 public class Edge
 {
+    static public double[] bias =
+    {
+        1, 0.81, 0.64, 0.49, 0.36, 0.25, 0.16, 0.09, 0.04, 0.01,
+    };
     static public double ConfidenceCriteria = 900;
     public Node From;
     public Node To;
@@ -400,10 +405,6 @@ public class Edge
         double confidenceSum = 0 ;
         double lenSum = 0;
 
-        double[] bias =
-        {
-            1.0, 0.81, 0.64, 0.49, 0.36, 0.25, 0.16, 0.09, 0.04, 0.01, 
-        };
         int check = 3;
 
         Dir dir = default;
@@ -449,18 +450,20 @@ public partial class Solver
 {
     const int queryNum = 1000;
     public static int sh, sw, gh, gw;
-    public static int queryNumber = 0;
+    public static int QueryNumber = 0;
     public double[] turnBonus = {
-        1, 1, 1, 0.5, 0.25, 0.125, 0.0625, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-        , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-        , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-        , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        1, 1, 1, 0.5, 0.25, 0.125, 0.0625, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
     public void Solve()
     {
         var g = new GridGraph(30, 30);
-        for (queryNumber = 0; queryNumber < queryNum; queryNumber++)
+        for (QueryNumber = 0; QueryNumber < queryNum; QueryNumber++)
         {
+            if (QueryNumber < 12) Node.Lazy = -1;
+            else Node.Lazy = 1;
             Read(out sh, out sw, out gh, out gw);
             g.Dijkstra(g.Nodes[sh, sw]);
             string pathString = g.GetPathString(sh, sw, gh, gw);
