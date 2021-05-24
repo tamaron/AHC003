@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AHC003", "AHC003.csproj", "{A21452B9-6013-46D7-9167-F2C36ABA5A3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A21452B9-6013-46D7-9167-F2C36ABA5A3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A21452B9-6013-46D7-9167-F2C36ABA5A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A21452B9-6013-46D7-9167-F2C36ABA5A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A21452B9-6013-46D7-9167-F2C36ABA5A3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E36E6C04-1576-49A7-A41E-255DA0850176}
+	EndGlobalSection
+EndGlobal

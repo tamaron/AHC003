@@ -1,0 +1,1 @@
+C:\Users\tamar\source\repos\Coding4CSharp\bin\Debug\target\release\gen.exe: C:\Users\tamar\source\repos\Coding4CSharp\bin\Debug\src\bin\gen.rs C:\Users\tamar\source\repos\Coding4CSharp\bin\Debug\src\lib.rs

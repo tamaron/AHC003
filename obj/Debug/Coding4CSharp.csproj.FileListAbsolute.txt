@@ -1,0 +1,7 @@
+C:\Users\tamar\source\repos\Coding4CSharp\bin\Debug\Coding4CSharp.exe.config
+C:\Users\tamar\source\repos\Coding4CSharp\bin\Debug\Coding4CSharp.exe
+C:\Users\tamar\source\repos\Coding4CSharp\bin\Debug\Coding4CSharp.pdb
+C:\Users\tamar\source\repos\Coding4CSharp\obj\Debug\Coding4CSharp.csprojAssemblyReference.cache
+C:\Users\tamar\source\repos\Coding4CSharp\obj\Debug\Coding4CSharp.csproj.CoreCompileInputs.cache
+C:\Users\tamar\source\repos\Coding4CSharp\obj\Debug\Coding4CSharp.exe
+C:\Users\tamar\source\repos\Coding4CSharp\obj\Debug\Coding4CSharp.pdb
