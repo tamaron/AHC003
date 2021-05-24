@@ -1,1 +1,0 @@
-C:\Users\tamar\source\repos\Coding4CSharp\bin\Debug\target\release\vis.exe: C:\Users\tamar\source\repos\Coding4CSharp\bin\Debug\src\bin\vis.rs C:\Users\tamar\source\repos\Coding4CSharp\bin\Debug\src\lib.rs
