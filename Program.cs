@@ -483,7 +483,6 @@ public partial class Solver
                 to.Edges[Over(dir)].Confidence = current.Edges[dir].Confidence;
                 to.Edges[Over(dir)].Len = current.Edges[dir].Len;
                 current = to;
-
             }
         }
     }
